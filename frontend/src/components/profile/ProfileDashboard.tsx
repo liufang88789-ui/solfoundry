@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Clock, GitPullRequest, DollarSign, Settings, BarChart3 } from 'lucide-react';
+import { Clock, GitPullRequest, DollarSign, Settings, BarChart3, TrendingUp } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { useAuth } from '../../hooks/useAuth';
 import { useBounties } from '../../hooks/useBounties';
@@ -194,7 +194,7 @@ export function ProfileDashboard() {
                   : 'text-text-muted hover:text-text-secondary'
                 }`}
             >
-              {tab === 'Stats' && <BarChart3 className="w-3.5 h-3.5" />}
+              {tab === 'Stats' && <TrendingUp className="w-3.5 h-3.5" />}
               {tab === 'Earnings' && <DollarSign className="w-3.5 h-3.5" />}
               {tab === 'Settings' && <Settings className="w-3.5 h-3.5" />}
               {tab}
