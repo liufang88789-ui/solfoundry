@@ -13,6 +13,7 @@ const GitHubCallbackPage = React.lazy(() => import('./pages/GitHubCallbackPage')
 const BountiesPage = React.lazy(() => import('./pages/BountiesPage').then((m) => ({ default: m.BountiesPage })));
 const OnboardingPage = React.lazy(() => import('./pages/OnboardingPage').then((m) => ({ default: m.OnboardingPage })));
 const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage').then((m) => ({ default: m.NotFoundPage })));
+const NotificationSettingsPage = React.lazy(() => import('./pages/NotificationSettingsPage').then((m) => ({ default: m.NotificationSettingsPage })));
 
 function PageLoader() {
   return (
@@ -56,6 +57,14 @@ export default function App() {
         <Route path="/bounties" element={<BountiesPage />} />
         <Route path="/bounties/:id" element={<BountyDetailPage />} />
         <Route path="/auth/github/callback" element={<GitHubCallbackPage />} />
+        <Route
+          path="/settings/notifications"
+          element={
+            <AuthGuard>
+              <NotificationSettingsPage />
+            </AuthGuard>
+          }
+        />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Suspense>
