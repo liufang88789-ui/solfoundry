@@ -242,7 +242,7 @@ export function ContributorStats() {
   // Fetch GitHub stats
   useEffect(() => {
     if (!user?.username) return;
-    const token = localStorage.getItem('sf_access_token');
+    const token = localStorage.getItem('sf_access_token') ?? undefined;
     setLoadingGitHub(true);
     fetchGitHubStats(user.username, token).then(stats => {
       setGithubStats(stats);
@@ -268,7 +268,7 @@ export function ContributorStats() {
           icon={<TrendingUp className="w-5 h-5" />}
           label="Total $FNDRY"
           value={`${(totalEarnedFNDRY / 1000).toFixed(0)}K`}
-          sub="≈ $" + (totalEarnedFNDRY / 100000).toFixed(1) + "K est."
+          sub={`≈ $${(totalEarnedFNDRY / 100000).toFixed(1)}K est.`}
           color="text-purple-light"
         />
         <StatCard
